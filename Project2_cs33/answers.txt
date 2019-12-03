@@ -1,0 +1,12 @@
+1.) The problem was caused by the instruction
+48 8d 04 ad 02 00 00 00 lea 0x2(,%rbp,4),%rax
+which caused overflow in the return value
+
+2.) It is coded into the header file that it recieves its data from
+
+3.) The way that emacs multiplies the numbers using masks creates an overflow
+to 1
+
+4.) Emacs would probably face problems when people are expecting a certain
+answer and recieve incorrect information for what they needed. As opposed to
+not using it when the user will recieve warning messages regarding overflow

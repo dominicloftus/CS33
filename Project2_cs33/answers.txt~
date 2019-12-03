@@ -1,0 +1,5 @@
+1.) The problem was caused by the instruction
+48 8d 04 ad 02 00 00 00 lea 0x2(,%rbp,4),%rax
+which caused overflow in the return value
+
+2.)

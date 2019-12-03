@@ -1,0 +1,14 @@
+I'll refer to compilation with flag -O2 as 1
+compilation with flags -O2 -fwrapv as 2
+and compilation with flags -O2 -fsanitize=undefined as 3
+
+Compilations 1 and 3 ended up with the same assembly code that always returned false,
+but I believe for different reasons. 1 was because the compiler logically
+understands that adding any positive value will always be greater than the
+original value. 3 I believe is because it realizes it will always be false and
+if it overflows then it will crash instantly because of the -fsanitize=undefined
+flag.
+
+Compilation 2 is more of an exact translation of code and allows for wrap around
+of overflowed variables it contains add, comparison and move assembly instructions
+that would be expected from this program

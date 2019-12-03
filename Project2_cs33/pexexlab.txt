@@ -1,0 +1,26 @@
+First I opened into gdb with the emacs executable file using
+$gdb ~eggert/bin64/bin/emacs-26.1
+which opened the gdb window
+
+Then I set a breakpoint at function Ftimes by using
+(gdb) b Ftimes
+which set the breakpoint
+
+Then I ran the function using command
+(gdb) run -Q -batch -eval '(print (* 1250284240 -1844255039))'
+which began running through the function until it hit the breakpoint at Ftimes
+
+I than used command
+(gdb) set disassemble-next-line on
+which which broke down each line of source code into assembly and machine code
+
+I began tracing through the program using
+(gdb) si
+after each command I would copy down the machine address, machine, and assembly code
+down into the trace
+
+Then I would use
+(gdb) info reg
+to get values stored at register affected by the program running and copy
+it into the trace
+
