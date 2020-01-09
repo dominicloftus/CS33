@@ -1,7 +1,0 @@
-I'll refer to compilation with flag -O2 as 1
-compilation with flags -O2 -fwrapv as 2
-and compilation with flags -O2 -fsanitize=undefined as 3
-
-Compilations 1 and 3 ended up with the same assembly code that always returned false,
-but I believe for different reasons. 1 was because the compiler logically
-understands that adding any positive value will always be greater then
